@@ -50,7 +50,7 @@ namespace QTEPack
 
             float elapsedTime = 0;
 
-            while (elapsedTime < timeByDifficulty * 2 && !done)
+            while (elapsedTime < timeByDifficulty && !done)
             {
                 elapsedTime += Time.fixedDeltaTime;
 

@@ -4,62 +4,101 @@ using UnityEngine;
 
 public class playerStop : MonoBehaviour
 {
-
     public QuickTimeEvent QTE;
+    public QuickTimeEvent QTE2; // Second QTE
     [SerializeField] RunCamera runCamera;
+    [SerializeField] int enemyDifficulty;
     PlayerMove playerMove;
 
     private void Start()
     {
         QTE.Hide();
+        if (QTE2 != null) QTE2.Hide();
     }
+
     public void Show()
     {
+        QTE.OnSuccess.AddListener(OnFirstQTEWin);
+        QTE.OnFail.AddListener(OnFirstQTELose);
+        
+        runCamera.CombatCamera();
+        QTE.ShowQTE(new Vector2(Random.Range(0, 200f), Random.Range(0, 200f)), 1, enemyDifficulty);
+    }
 
-        QTE.ShowQTE(new Vector2(200f, 200f), 1, 0);
-
+    private void ShowSecondQTE()
+    {
+        if (QTE2 == null) return;
+        QTE2.OnSuccess.AddListener(OnSecondQTEWin);
+        QTE2.OnFail.AddListener(OnSecondQTELose);
+        runCamera.CombatCamera();
+        QTE2.ShowQTE(new Vector2(Random.Range(0, 200f), Random.Range(0, 200f)), 1, enemyDifficulty);
     }
 
     public void Hide()
     {
-
         QTE.Hide();
+        if (QTE2 != null) QTE2.Hide();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object entering the trigger has the "Player" tag
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered the trigger!");
-            // You can stop the player or do other actions here
-            // Example: stop movement script
             playerMove = other.GetComponent<PlayerMove>();
             RunCamera runCamera = other.GetComponent<RunCamera>();
-            QTE.OnSuccess.AddListener(OnWin);
-            QTE.OnFail.AddListener(OnLose);
             if (playerMove != null)
             {
                 Debug.Log("PlayerMove script found and disabled.");
-                playerMove.canMove = false; // disable movement
+                playerMove.canMove = false;
                 Show();
             }
         }
     }
 
-    public void OnLose()
+    // First QTE callbacks
+    private void OnFirstQTEWin()
     {
-        Destroy(gameObject);
-        QTE.OnSuccess.RemoveListener(OnWin);
-        QTE.OnFail.RemoveListener(OnLose);
+        QTE.OnSuccess.RemoveListener(OnFirstQTEWin);
+        QTE.OnFail.RemoveListener(OnFirstQTELose);
+        QTE.Hide();
+        StartCoroutine(ShowSecondQTEWithDelay(0.5f)); // 0.5 seconds delay
     }
 
-    public void OnWin()
+    private IEnumerator ShowSecondQTEWithDelay(float delay)
     {
-        Hide();
+        yield return new WaitForSecondsRealtime(delay);
+        ShowSecondQTE();
+    }
+
+    private void OnFirstQTELose()
+    {
+        QTE.OnSuccess.RemoveListener(OnFirstQTEWin);
+        QTE.OnFail.RemoveListener(OnFirstQTELose);
+        QTE.Hide();
+        // Optionally handle fail logic here
+        Debug.Log("Player failed the first QTE.");
+        Time.timeScale = 1f;
+    }
+
+    // Second QTE callbacks
+    private void OnSecondQTEWin()
+    {
+        QTE2.OnSuccess.RemoveListener(OnSecondQTEWin);
+        QTE2.OnFail.RemoveListener(OnSecondQTELose);
+        QTE2.Hide();
+        Time.timeScale = 1f;
         Destroy(gameObject);
         runCamera.SwitchCameras();
-        QTE.OnSuccess.RemoveListener(OnWin);
-        QTE.OnFail.RemoveListener(OnLose);
+    }
+
+    private void OnSecondQTELose()
+    {
+        QTE2.OnSuccess.RemoveListener(OnSecondQTEWin);
+        QTE2.OnFail.RemoveListener(OnSecondQTELose);
+        QTE2.Hide();
+        Time.timeScale = 1f;
+        Debug.Log("Player failed the second QTE.");
+        // Optionally handle fail logic here
     }
 }
