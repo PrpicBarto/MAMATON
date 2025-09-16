@@ -21,7 +21,7 @@ public class RunCamera : MonoBehaviour
         cameras[0].Priority = index;
         index++;
         yield return new WaitForSeconds(sequenceTime);
-        cameras[1].Priority = index;
+        cameras[Random.Range(1, cameras.Length)].Priority = index;
         index++;
         yield return new WaitForSeconds(sequenceTime);
         cameras[0].Priority = index;
