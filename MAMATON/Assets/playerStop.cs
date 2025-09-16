@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class playerStop : MonoBehaviour
 {
+    [SerializeField] QTETest qucikTimeEvent;
+
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the trigger has the "Player" tag
@@ -14,6 +16,7 @@ public class playerStop : MonoBehaviour
             if (playerMove != null)
             {
                 playerMove.enabled = false; // disables the PlayerMove script
+                qucikTimeEvent.Show();
             }
         }
     }

@@ -9,13 +9,12 @@ public class QTETest : MonoBehaviour
 
     private void Start()
     {
-        Show();
+        QTE.Hide();
     }
-
     public void Show()
     {
 
-        QTE.ShowQTE(new Vector2(200f, 200f), 1, 2);
+        QTE.ShowQTE(new Vector2(200f, 200f), 1, 0);
 
     }
 
