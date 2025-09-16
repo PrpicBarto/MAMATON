@@ -23,7 +23,7 @@ public class RunCamera : MonoBehaviour
 
     IEnumerator CameraSwitch()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         cameras[0].Priority = index;
         index++;
         yield return new WaitForSeconds(1f);
