@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9e2fe536138637b4284229be23b56fe6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 272882
+  packageName: QuickTimeEventsPack
+  packageVersion: 1.0
+  assetPath: Assets/QuickTimeEventsPack/Prefabs/QTE_PushKey.prefab
+  uploadId: 648396

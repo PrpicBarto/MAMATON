@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 30c77b8e7a22c7d4582c818c33d41176
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 272882
+  packageName: QuickTimeEventsPack
+  packageVersion: 1.0
+  assetPath: Assets/QuickTimeEventsPack/Scripts/QTE/QTE_BarHit.cs
+  uploadId: 648396

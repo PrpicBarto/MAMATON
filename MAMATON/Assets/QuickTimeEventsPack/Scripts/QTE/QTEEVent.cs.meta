@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fe0d78a7a202f384b9823872ee955f1f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 272882
+  packageName: QuickTimeEventsPack
+  packageVersion: 1.0
+  assetPath: Assets/QuickTimeEventsPack/Scripts/QTE/QTEEVent.cs
+  uploadId: 648396

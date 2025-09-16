@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c8e79ca6dbd96944fa4917501f6d2bd9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 272882
+  packageName: QuickTimeEventsPack
+  packageVersion: 1.0
+  assetPath: Assets/QuickTimeEventsPack/Scripts/FPSCounter.cs
+  uploadId: 648396

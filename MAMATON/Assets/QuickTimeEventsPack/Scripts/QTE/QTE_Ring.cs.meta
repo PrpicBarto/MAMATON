@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bf1e2d26ccb65b0428618d8eaca3ddd8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 272882
+  packageName: QuickTimeEventsPack
+  packageVersion: 1.0
+  assetPath: Assets/QuickTimeEventsPack/Scripts/QTE/QTE_Ring.cs
+  uploadId: 648396
