@@ -8,6 +8,7 @@ public class RunCamera : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] int index;
     [SerializeField] float sequenceTime;
+    [SerializeField] QTETest quickTimeEvent;
 
     public void SwitchCameras()
     {
@@ -16,6 +17,7 @@ public class RunCamera : MonoBehaviour
 
     IEnumerator CameraSwitch()
     {
+        quickTimeEvent.Hide();
         yield return new WaitForSeconds(sequenceTime);
         cameras[0].Priority = index;
         index++;

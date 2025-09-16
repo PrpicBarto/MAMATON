@@ -1178,6 +1178,7 @@ MonoBehaviour:
   player: {fileID: 452782264}
   index: 0
   sequenceTime: 0.4
+  quickTimeEvent: {fileID: 1178924649}
 --- !u!1 &1178924644
 GameObject:
   m_ObjectHideFlags: 0
