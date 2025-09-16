@@ -1,14 +1,14 @@
+using QTEPack;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class RunCamera : MonoBehaviour
 {
     [SerializeField] CinemachineCamera[] cameras;
-    [SerializeField] GameObject player;
     [SerializeField] int index;
     [SerializeField] float sequenceTime;
-    [SerializeField] QTETest quickTimeEvent;
 
     public void SwitchCameras()
     {
@@ -17,7 +17,6 @@ public class RunCamera : MonoBehaviour
 
     IEnumerator CameraSwitch()
     {
-        quickTimeEvent.Hide();
         yield return new WaitForSeconds(sequenceTime);
         cameras[0].Priority = index;
         index++;
@@ -27,5 +26,8 @@ public class RunCamera : MonoBehaviour
         yield return new WaitForSeconds(sequenceTime);
         cameras[0].Priority = index;
         yield return null;
+        PlayerMove.instance.canMove = true;
     }
+
+    
 }

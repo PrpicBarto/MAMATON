@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4099140095183038562}
   m_Layer: 0
   m_Name: StopZone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7023697325923190777}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.9376, y: 0.84, z: 3.9735603}
+  m_LocalPosition: {x: 0, y: 0.5, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -67,6 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0861e97e13fab47868d5d5c690dff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  QTE: {fileID: 0}
+  runCamera: {fileID: 0}
+  hasWon: 0
 --- !u!1 &8766761913485349139
 GameObject:
   m_ObjectHideFlags: 0

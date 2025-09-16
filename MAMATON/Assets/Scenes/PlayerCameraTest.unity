@@ -135,6 +135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314b443f2bcbc8b4c82e7d45b202243e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &89346524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4099140095183038562, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+  m_PrefabInstance: {fileID: 789792242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0861e97e13fab47868d5d5c690dff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &262418606
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +739,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &563435268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536206687578113281, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099140095183038562, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: QTE
+      value: 
+      objectReference: {fileID: 11105493}
+    - target: {fileID: 4099140095183038562, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: runCamera
+      value: 
+      objectReference: {fileID: 967157038}
+    - target: {fileID: 7023697325923190777, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: m_Name
+      value: StopZone (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
 --- !u!1 &628840797
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,9 +1067,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4099140095183038562, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
-      propertyPath: qucikTimeEvent
+      propertyPath: QTE
       value: 
-      objectReference: {fileID: 1178924649}
+      objectReference: {fileID: 11105493}
+    - target: {fileID: 4099140095183038562, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
+      propertyPath: runCamera
+      value: 
+      objectReference: {fileID: 967157038}
     - target: {fileID: 7023697325923190777, guid: 96b7a7f232ba48442aa1962290cdfb2a, type: 3}
       propertyPath: m_Name
       value: StopZone
@@ -1123,7 +1203,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967157037}
-  - component: {fileID: 967157036}
   - component: {fileID: 967157038}
   m_Layer: 0
   m_Name: GameManager
@@ -1132,19 +1211,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &967157036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967157035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a7fe020f5699448975eb5928371eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RunQTETest
-  runCamera: {fileID: 967157038}
 --- !u!4 &967157037
 Transform:
   m_ObjectHideFlags: 0
@@ -1175,10 +1241,8 @@ MonoBehaviour:
   cameras:
   - {fileID: 262418607}
   - {fileID: 1391297598}
-  player: {fileID: 452782264}
   index: 0
   sequenceTime: 0.4
-  quickTimeEvent: {fileID: 1178924649}
 --- !u!1 &1178924644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,11 +1255,11 @@ GameObject:
   - component: {fileID: 1178924648}
   - component: {fileID: 1178924647}
   - component: {fileID: 1178924646}
-  - component: {fileID: 1178924649}
   - component: {fileID: 1178924651}
   - component: {fileID: 1178924650}
+  - component: {fileID: 1178924652}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,19 +1362,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178924644}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1178924649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178924644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d58a4427a169b4eb566f5f221da62e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QTETest
-  QTE: {fileID: 11105493}
 --- !u!114 &1178924650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,6 +1376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   speed: 5
   jumpForce: 5
+  canMove: 1
 --- !u!54 &1178924651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1352,6 +1404,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1178924652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178924644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef5a7eff8ce6334cb712a9c8b223ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunCamera
+  cameras:
+  - {fileID: 262418607}
+  - {fileID: 1391297598}
+  index: 0
+  sequenceTime: 0.4
 --- !u!1001 &1346492714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1370,11 +1439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnSuccess.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1383,7 +1452,7 @@ PrefabInstance:
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 967157036}
+      objectReference: {fileID: 89346524}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -1395,7 +1464,7 @@ PrefabInstance:
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 967157036}
+      objectReference: {fileID: 89346524}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnLose
@@ -1410,11 +1479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RunQTETest, Assembly-CSharp
+      value: playerStop, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RunQTETest, Assembly-CSharp
+      value: playerStop, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2094712428510976547, guid: 9e2fe536138637b4284229be23b56fe6, type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1602,3 +1671,4 @@ SceneRoots:
   - {fileID: 901010784}
   - {fileID: 360850544}
   - {fileID: 789792242}
+  - {fileID: 563435268}

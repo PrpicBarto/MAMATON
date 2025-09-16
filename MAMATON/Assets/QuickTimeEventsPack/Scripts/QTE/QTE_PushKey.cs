@@ -66,7 +66,7 @@ namespace QTEPack
             }
             else
             {
-                resultText.text = "Ups...";
+                resultText.text = "Failed";
                 OnFail.Invoke();
             }
         }
