@@ -32,4 +32,10 @@ public class PlayerMove : MonoBehaviour
         }
         // Move the player forward automatically
     }
+
+    public void Die()
+    {
+            PlayerMove.instance.animator.SetBool("IsDead", true);
+            PlayerMove.instance.canMove = false;
+    }
 }

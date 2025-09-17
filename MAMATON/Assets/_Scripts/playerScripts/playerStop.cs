@@ -5,10 +5,11 @@ using UnityEngine;
 public class playerStop : MonoBehaviour
 {
     public QuickTimeEvent QTE;
-    public QuickTimeEvent QTE2; // Second QTE
+    public QuickTimeEvent QTE2;
     [SerializeField] RunCamera runCamera;
     [SerializeField] int enemyDifficulty;
     PlayerMove playerMove;
+    bool isDead;
 
     private void Start()
     {
@@ -19,13 +20,10 @@ public class playerStop : MonoBehaviour
 
     public void Show()
     {
+        runCamera.CombatCamera();
         QTE.OnSuccess.AddListener(OnFirstQTEWin);
         QTE.OnFail.AddListener(OnFirstQTELose);
-        runCamera.CombatCamera();
-
-        // Start the animation when the first QTE is shown
         PlayerMove.instance.animator.SetBool("IsMoving", false);
-        PlayerMove.instance.animator.SetBool("IsAttacking", true);
 
         QTE.ShowQTE(new Vector2(Random.Range(0, 200f), Random.Range(0, 200f)), 1, enemyDifficulty);
     }
@@ -33,12 +31,11 @@ public class playerStop : MonoBehaviour
     private void ShowSecondQTE()
     {
         if (QTE2 == null) return;
+        runCamera.SwitchCameras();
+        PlayerMove.instance.animator.SetBool("IsAttacking", true);
         QTE2.OnSuccess.AddListener(OnSecondQTEWin);
         QTE2.OnFail.AddListener(OnSecondQTELose);
 
-        // Start the animation when the second QTE is shown
-        PlayerMove.instance.animator.SetBool("IsMoving", true);
-        PlayerMove.instance.animator.SetBool("IsAttacking", false);
 
         QTE2.ShowQTE(new Vector2(Random.Range(0, 200f), Random.Range(0, 200f)), 1, enemyDifficulty);
     }
@@ -65,21 +62,17 @@ public class playerStop : MonoBehaviour
         }
     }
 
-    // First QTE callbacks
+    
     private void OnFirstQTEWin()
     {
+        
         QTE.OnSuccess.RemoveListener(OnFirstQTEWin);
         QTE.OnFail.RemoveListener(OnFirstQTELose);
         QTE.Hide();
         Time.timeScale = 1f;
-        StartCoroutine(ShowSecondQTEWithDelay(2.5f));
+        StartCoroutine(ShowSecondQTEWithDelay(2.25f));
     }
 
-    private IEnumerator ShowSecondQTEWithDelay(float delay)
-    {
-        yield return new WaitForSecondsRealtime(delay);
-        ShowSecondQTE();
-    }
 
     private void OnFirstQTELose()
     {
@@ -87,18 +80,23 @@ public class playerStop : MonoBehaviour
         QTE.OnFail.RemoveListener(OnFirstQTELose);
         QTE.Hide();
         Debug.Log("Player failed the first QTE.");
-        PlayerMove.instance.animator.SetBool("IsMoving", true);
         Time.timeScale = 1f;
+        PlayerMove.instance.animator.CrossFadeInFixedTime("Death", 0.1f);
     }
 
-    // Second QTE callbacks
+    private IEnumerator ShowSecondQTEWithDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        ShowSecondQTE();
+    }
     private void OnSecondQTEWin()
     {
         QTE2.OnSuccess.RemoveListener(OnSecondQTEWin);
         QTE2.OnFail.RemoveListener(OnSecondQTELose);
         QTE2.Hide();
+        PlayerMove.instance.animator.SetBool("IsMoving", true);
+        PlayerMove.instance.animator.SetBool("IsAttacking", false);
         Time.timeScale = 1f;
-        runCamera.SwitchCameras();
         Destroy(gameObject);
     }
 
@@ -108,7 +106,7 @@ public class playerStop : MonoBehaviour
         QTE2.OnFail.RemoveListener(OnSecondQTELose);
         QTE2.Hide();
         Time.timeScale = 1f;
-        PlayerMove.instance.animator.SetBool("IsMoving", true);
+        PlayerMove.instance.animator.CrossFadeInFixedTime("Death", 0.1f);
         Debug.Log("Player failed the second QTE.");
     }
 }
