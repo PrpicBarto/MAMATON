@@ -22,25 +22,22 @@ public class RunCamera : MonoBehaviour
         Debug.Log("Combat camera activated");
     }
 
-    IEnumerator CameraSwitch()
-    {
-        yield return new WaitForSeconds(sequenceTime);
-        cameras[Random.Range(2, cameras.Length)].Priority = index;
-        index++;
-        yield return new WaitForSeconds(sequenceTime);
-        PlayerMove.instance.animator.SetBool("IsMoving", true);
-        PlayerMove.instance.animator.SetBool("IsAttacking", false);
-        cameras[0].Priority = index;
-        PlayerMove.instance.canMove = true;
-        yield return null;
-    }
     IEnumerator CombatSequence()
     {
-        PlayerMove.instance.animator.SetBool("IsAttacking", true);
         Time.timeScale = 0.25f;
         cameras[Random.Range(1, cameras.Length)].Priority = index;
         index++;
         yield return new WaitForSeconds(animationTime);
+        yield return null;
+    }
+    IEnumerator CameraSwitch()
+    {
+        Time.timeScale = 0.25f;
+        cameras[Random.Range(2, cameras.Length)].Priority = index;
+        index++;
+        yield return new WaitForSeconds(sequenceTime);
+        cameras[0].Priority = index;
+        PlayerMove.instance.canMove = true;
         yield return null;
     }
 
