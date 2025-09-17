@@ -70,6 +70,7 @@ public class playerStop : MonoBehaviour
         QTE.OnFail.RemoveListener(OnFirstQTELose);
         QTE.Hide();
         Time.timeScale = 1f;
+        PlayerMove.instance.animator.SetBool("IsAttacking", true);
         StartCoroutine(ShowSecondQTEWithDelay(2.25f));
     }
 
@@ -81,7 +82,7 @@ public class playerStop : MonoBehaviour
         QTE.Hide();
         Debug.Log("Player failed the first QTE.");
         Time.timeScale = 1f;
-        PlayerMove.instance.animator.CrossFadeInFixedTime("Death", 0.1f);
+        PlayerMove.instance.animator.SetBool("IsDead", true);
     }
 
     private IEnumerator ShowSecondQTEWithDelay(float delay)
@@ -106,7 +107,7 @@ public class playerStop : MonoBehaviour
         QTE2.OnFail.RemoveListener(OnSecondQTELose);
         QTE2.Hide();
         Time.timeScale = 1f;
-        PlayerMove.instance.animator.CrossFadeInFixedTime("Death", 0.1f);
+        PlayerMove.instance.animator.SetBool("IsDead", true);
         Debug.Log("Player failed the second QTE.");
     }
 }
