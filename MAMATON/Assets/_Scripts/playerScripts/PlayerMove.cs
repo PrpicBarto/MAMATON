@@ -5,6 +5,9 @@ public class PlayerMove : MonoBehaviour
 {
 
     public static PlayerMove instance;
+
+    [SerializeField] bool attackBool;
+    public Animator animator;
     public float speed = 5f;      // Forward movement speed
     public float jumpForce = 5f;  // Jump strength
     private Rigidbody rb;
