@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/UIScene.unity
+    guid: e51c530cb2b0ec74aa084f9f0470292f
+  - enabled: 1
     path: Assets/Scenes/PlayerCameraTest.unity
     guid: c4832209e8c8689478938cc132ec8900
+  - enabled: 1
+    path: Assets/Scenes/Outro/Outro.unity
+    guid: 51c8e2e2cc3935341b1cea2b3ade0d94
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

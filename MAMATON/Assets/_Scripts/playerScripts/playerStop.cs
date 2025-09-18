@@ -98,7 +98,7 @@ public class playerStop : MonoBehaviour
         PlayerMove.instance.animator.SetBool("IsMoving", true);
         PlayerMove.instance.animator.SetBool("IsAttacking", false);
         Time.timeScale = 1f;
-        Destroy(gameObject);
+        StartCoroutine(Destroy());
     }
 
     private void OnSecondQTELose()
@@ -110,4 +110,11 @@ public class playerStop : MonoBehaviour
         PlayerMove.instance.animator.SetBool("IsDead", true);
         Debug.Log("Player failed the second QTE.");
     }
+
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }
+

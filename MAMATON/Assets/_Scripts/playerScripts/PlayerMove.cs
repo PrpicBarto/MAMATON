@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
@@ -21,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Prevent physics from rotating the player
+        animator.SetBool("IsMoving", true);
     }
 
     void FixedUpdate()
@@ -37,5 +39,13 @@ public class PlayerMove : MonoBehaviour
     {
             PlayerMove.instance.animator.SetBool("IsDead", true);
             PlayerMove.instance.canMove = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ribbon"))
+        {
+            SceneManager.LoadSceneAsync(2);
+        }
     }
 }

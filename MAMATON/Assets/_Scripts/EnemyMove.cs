@@ -4,7 +4,12 @@ public class EnemyMove : MonoBehaviour
 {
     public float speed = 3f; // Enemy movement speed
     private bool hasContactedPlayer = false;
+    [SerializeField] Animator animator;
 
+    private void Start()
+    {
+
+    }
     void Update()
     {
         if (!hasContactedPlayer && PlayerMove.instance != null)

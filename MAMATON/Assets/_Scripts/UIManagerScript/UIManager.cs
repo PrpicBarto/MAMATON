@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -79,14 +80,7 @@ public class UIManager : MonoBehaviour
 
     public void PlayGame()
     {
-        if (mainMenu) mainMenu.SetActive(false);
-        if (optionsMenu) optionsMenu.SetActive(false);
-        if (pauseMenu) pauseMenu.SetActive(false);
-        if (gameOverMenu) gameOverMenu.SetActive(false);
-
-        isPaused = false;
-        isGameOver = false;
-        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(1);
 
         OnGameStart?.Invoke();
     }
