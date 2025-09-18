@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 536206687578113281}
   - component: {fileID: 2010120349176971716}
   - component: {fileID: 4099140095183038562}
+  - component: {fileID: 664896117164507701}
   m_Layer: 0
   m_Name: StopZone
   m_TagString: Enemy
@@ -68,8 +69,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   QTE: {fileID: 0}
+  QTE2: {fileID: 0}
   runCamera: {fileID: 0}
-  hasWon: 0
+  enemyDifficulty: 0
+--- !u!114 &664896117164507701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023697325923190777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ea321a53bfb974d889b34c29942e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  speed: 3
 --- !u!1 &8766761913485349139
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,7 +71,7 @@ public class playerStop : MonoBehaviour
         QTE.Hide();
         Time.timeScale = 1f;
         PlayerMove.instance.animator.SetBool("IsAttacking", true);
-        StartCoroutine(ShowSecondQTEWithDelay(2.25f));
+        StartCoroutine(ShowSecondQTEWithDelay(2f));
     }
 
 
